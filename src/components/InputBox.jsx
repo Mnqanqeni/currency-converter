@@ -13,13 +13,14 @@ export default function InputBox({
 }) {
   return (
     <>
-      <div className={` bg-white p-3  text-sm flex ${className}`}>
+      <div className={`bg-white p-3  text-sm flex ${className}`}>
         <div className="w-1/2">
-          <label className="text-black/40 mb-2 inline-block">{label}</label>
+          <label htmlFor="currency" className="text-black/40 mb-2 inline-block">{label}</label>
           <input
+            id="currency"
             type="number"
             className="outline-none w-full bg-transparent"
-            placeholder="Abount"
+            placeholder="Amount"
             disabled={amountDisable}
             value={amount}
             onChange={(e) =>
@@ -31,7 +32,7 @@ export default function InputBox({
           <p className="text-black/40 mb-2 w-full"> Currency Type</p>
           <select
             value={selectedCurrency}
-            onChange={(e) => onCurrencyChange && onAmountChange(e.target.value)}
+            onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
           >
             {currencyOptions.map((currency) => (
               <option key={currency} value={currency}>{currency}</option>
